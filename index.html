@@ -3,22 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feijão com farinha</title>
+    <title>Feijão com Farinha Piscante sobre Fundo</title>
     <style>
-        /* O segredo da centralização está aqui */
         body {
-            display: flex;          /* Transforma o body em um container flexível */
-            flex-direction: column; /* Coloca o texto acima do vídeo */
-            align-items: center;    /* Centraliza horizontalmente */
-            justify-content: center; /* Centraliza verticalmente */
-            min-height: 100vh;      /* Ocupa 100% da altura da tela do navegador */
-            margin: 0;              /* Remove espaços extras nas bordas */
-            background-color: #000000; /* Cor de fundo opcional apenas para contraste */
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            
+            /* --- INÍCIO DAS CONFIGURAÇÕES DE FUNDO --- */
+            
+            /* 1. Link da Imagem: Substitua 'link_da_sua_imagem.jpg' pelo caminho real */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ38SnJ_O5c6C65K5n4oTXPq4M0SL4fCbHWg&s'); 
+            
+            /* 2. Cobre a tela toda, sem distorcer */
+            background-size: cover; 
+            
+            /* 3. Centraliza a imagem se ela for cortada */
+            background-position: center; 
+            
+            /* 4. Impede que a imagem se repita (lado a lado) */
+            background-repeat: no-repeat; 
+            
+            /* 5. Mantém o fundo fixo ao rolar a página (opcional, mas fica legal) */
+            background-attachment: fixed; 
+
+            /* Uma cor de fundo de segurança caso a imagem não carregue */
+            background-color: #333; 
+            
+            /* --- FIM DAS CONFIGURAÇÕES DE FUNDO --- */
+            
+            font-family: sans-serif;
         }
 
+        /* Estilos do Título Piscante (mantidos) */
         h1 {
-            margin-bottom: 20px;    /* Dá um espaço entre o título e o vídeo */
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0,0,0,1), 0 0 10px #ffcc00; /* Sombra preta extra para ler sobre a imagem */
+            animation: piscarTexto 0.8s ease-in-out infinite;
+        }
+
+        /* Regras da animação de piscar (mantidas) */
+        @keyframes piscarTexto {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.1; }
+        }
+
+        /* Container do Vídeo (mantido) */
+        .video-container {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7); /* Sombra mais forte para destacar do fundo */
+            border: 5px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -26,14 +80,14 @@
 
     <h1>Feijão com farinha</h1>
     
-    <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/fTsjwIoDXT0?si=VuXWptUpFaNUqMF4&amp;controls=0" 
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/fTsjwIoDXT0?si=VuXWptUpFaNUqMF4&amp;controls=1" 
             title="YouTube video player" 
-            frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
             allowfullscreen>
-    </iframe>
+        </iframe>
+    </div>
 
 </body>
 </html>
